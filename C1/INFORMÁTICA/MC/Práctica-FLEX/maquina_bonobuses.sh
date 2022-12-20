@@ -1,13 +1,21 @@
 #!/bin/bash
 
-if [ $# != 2 ] then 
+v=100
+if [ $# != 2 ]; then 
 	echo "ERROR EN EL NUMERO DE ARGUMENTOS"
 else
+    
     mkdir bonobuses
-    cd bonobuses
-    for i in {1..$2}; do
-    	./$1 > bonobus_$i.txt
+  
+    for (( i=1; i <= $v; i++ )) 
+    do
+    	g++ $1 -o prog
+    	./prog $2 > bonobus_$i.txt
+    	mv bonobus_$i.txt bonobuses
     done
+    
+    
+   
 fi
     	
     	

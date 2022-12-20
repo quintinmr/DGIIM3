@@ -1,5 +1,9 @@
 %option noyywrap
 
+/* @author: Noura Lachhab y Quintín Mesa Romero */
+/* @grado: DGIIM                                */
+/* @file: escaner_bonobus.l                     */
+
 /*Sección de declaraciones*/
 
 %{
