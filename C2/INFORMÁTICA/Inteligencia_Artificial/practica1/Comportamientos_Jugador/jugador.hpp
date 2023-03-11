@@ -22,6 +22,12 @@ class ComportamientoJugador : public Comportamiento{
   
   // Declarar aquí las variables de estado
 
+  action last_action;
+  Orientacion brujula;
+
+  last_action = actIDLE;
+  brujula     = norte;
+
 };
 
 #endif
