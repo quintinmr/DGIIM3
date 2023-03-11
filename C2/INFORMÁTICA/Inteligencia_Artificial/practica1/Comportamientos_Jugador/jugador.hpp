@@ -4,12 +4,22 @@
 #include "comportamientos/comportamiento.hpp"
 using namespace std;
 
+struct state{
+  int fil;
+  int col;
+  Orientacion brujula;
+};
+
 class ComportamientoJugador : public Comportamiento{
 
   public:
     ComportamientoJugador(unsigned int size) : Comportamiento(size){
       // Constructor de la clase
       // Dar el valor inicial a las variables de estado
+      current_state.fil       = 99;
+      current_state.col       = 99;
+      current_state.brujula   = Norte;
+      last_action             = actIDLE;
     }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -19,8 +29,11 @@ class ComportamientoJugador : public Comportamiento{
     int interact(Action accion, int valor);
 
   private:
-  
+
   // Declarar aquí las variables de estado
+
+  state current_state;
+  Action last_action;
 
 };
 

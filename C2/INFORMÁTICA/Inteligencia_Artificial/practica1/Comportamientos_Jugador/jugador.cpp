@@ -7,6 +7,7 @@ using namespace std;
 Action ComportamientoJugador::think(Sensores sensores){
 
 	Action accion = actIDLE;
+	int a;
 
 	cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC << " ";
 	switch(sensores.sentido){
@@ -36,6 +37,65 @@ Action ComportamientoJugador::think(Sensores sensores){
 
 
 	// Determinar el efecto de la ultima accion enviada
+	switch (last_action){
+		case actFORWARD:
+			switch(current_state.brujula)
+			{
+				case Norte: current_state.fil--;
+				break;
+				case Noreste: current_state.fil--; current_state.col++;
+				break;
+				case Este: current_state.col++;
+				break;
+				case Sureste: current_state.fil++; current_state.col++;
+				break;
+				case Sur: current_state.fil++;
+				break;
+				case Suroeste: current_state.fil++; current_state.col--;
+				break;
+				case Oeste: current_state.col--;
+				break;
+				case Noroeste: current_state.fil--;current_state.col--;
+				break;
+				
+			}
+			break;
+		case actTURN_SR:
+			a = current_state.brujula;
+			a = (a+1)%8;
+			break;
+		case actTURN_SL:
+			a = current_state.brujula;
+			a = (a-1)%8;
+			current_state.brujula = static_cast<Orientacion>(a);
+			break;
+		case actTURN_BL:
+			a = current_state.brujula;
+			a = (a-3)%8;
+			current_state.brujula = static_cast<Orientacion>(a);
+			break;
+		case actTURN_BR:
+			a = current_state.brujula;
+			a = (a+3)%8;
+			current_state.brujula = static_cast<Orientacion>(a);
+			break;
+		case actIDLE:
+			break; 
+	
+	}
+
+	// Determinar la siguiente acción a realizar
+	if ((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S') and
+		sensores.superficie[2] == '_'){
+		accion = actFORWARD;
+	}
+	else{
+		accion = actTURN_SL;
+	}
+
+	// Recordar la última acción
+	last_action = accion;
+
 	return accion;
 }
 
