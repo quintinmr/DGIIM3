@@ -71,6 +71,7 @@ Cuando hablamos de la pila LAMP, hablamos del concepto de "pila"; vamos apilando
 Para ello, hacemos:
 
 > dnf search apache
+
 > sudo dnf install httpd
 
 Una vez instalado, comprobamos que se ha hecho la instalación correctamente:
@@ -100,6 +101,7 @@ Vemos como nuestro servidor http en el puerto 80 está funcionando y nos devuelv
 Para ello, hacemos:
 
 > dnf search php
+
 > sudo dnf install php
 
 Para ver que está funcionando el intérprete de php hacemos:
@@ -111,6 +113,7 @@ Para ver que está funcionando el intérprete de php hacemos:
 Para ello, hacemos:
 
 > dnf search mariadb
+
 > sudo dnf install mariadb
 
 Si hicieramos systemctl status mariadb nos sale como que no se encuentra el servicio. Esto de debe a que lo que hemos instalado es un cliente. Hay que instalar mariadb-server.
@@ -153,7 +156,9 @@ Hacemos
 Una vez dentro, 
 
 > less /etc/httpd/conf/httpd.conf
+
 > cd /var/www/html
+
 > sudo vi index.php
 
 Copiamos en el archivo el código:
@@ -207,3 +212,46 @@ A partir de aquí, hacer:
 > getsebool -a | grep httpd
 
 > sudo setsebool -P httpd_can_network_conect_db on
+
+
+### LAMP en Ubuntu
+
+1. Instalar tasksel
+
+    > sudo apt install tasksel
+
+2. Arrancar tasksel
+
+    > tasksel
+
+3. Dentro de tasksel seleccionamos **LAMP server**. Para seleccionar, cuando estemos sobre LAMP server, pulsamos **espacio** y enter. Esperamos a que instale la pila LAMP.
+
+4. Una vez instalados todos los paquetes, comprobamos:
+
+    > systemctl status apache2
+
+    Levantamos apache 2:
+
+    > sudo systemctl enable apache2
+
+    > sudo systemctl restart apache2
+
+    Instalamos php:
+
+    > sudo apt install php
+
+    Probamos el intérprete de php:
+
+    > php -a
+
+    Finalmente comprobamos el estado de mysql:
+
+    > systemctl status mysql
+
+    > sudo systemctl enable myqsl
+
+    > sudo systemctl restart mysql
+
+
+
+
