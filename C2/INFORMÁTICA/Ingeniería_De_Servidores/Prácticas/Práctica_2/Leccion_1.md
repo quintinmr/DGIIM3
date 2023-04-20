@@ -35,10 +35,10 @@ En la lista de direcorios, vamos a tener un directorio /etc/ssh y dos archivos q
         
             ethernets:
                 enp0s3:
-                dhcp4: true
+                  dhcp4: true
                 enp0s8:
-                addresses:
-                - 192.168.56.15/24
+                  addresses:
+                  - 192.168.56.15/24
             version: 2
        
 
