@@ -11,7 +11,7 @@ Gracias a él vamos a tener la posibilidad de:
 
 Surge ante las debilidades del protocolo telnet.
 
-El supuesto es: vamos a tener siempre un cliente que se conecta a un servidor. Por economia del lenguaje, ssh se refiere tanto al cliente como al servidor, pero en realidad sería: cliente ssh (sshd) y servicio ssh, del lado del servidor.
+El supuesto es: vamos a tener siempre un cliente que se conecta a un servidor. Por economia del lenguaje, ssh se refiere tanto al cliente como al servidor, pero en realidad sería: cliente ssh y servicio ssh (sshd), del lado del servidor.
 
 En la lista de direcorios, vamos a tener un directorio /etc/ssh y dos archivos que modifican el servicio, que no podemos confundir:
 
@@ -151,7 +151,7 @@ Nosotros hemos tenido problemas con esa dirección: con .1 si funciona. Pero da 
 
     1. Hacemos uso del comando **sed**:
 
-        > sed s/'Port 22'/'Port 22022'/ -i /etc/ssh/sshd_config
+        > sed s/'#Port 22'/'Port 22022'/ -i /etc/ssh/sshd_config
 
         Que lo que hace es sustituir una cadena por otra en el archivo que le pasamos por defecto.
     

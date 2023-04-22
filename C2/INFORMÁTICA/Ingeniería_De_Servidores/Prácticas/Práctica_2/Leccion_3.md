@@ -62,6 +62,7 @@ Para generar estos dos archivos usamos el comando:
 
 # LECCIÓN 3.2 (LAMP) - PRÁCTICA 2
 
+La pila LAMP es un conjunto de teconolgías de software libre que se utilizan para el desarrollo de aplicaciones web dinámicas y sitios web.
 Cuando hablamos de la pila LAMP, hablamos del concepto de "pila"; vamos apilando software uno encima de otro. LAMP viene de (Linux Apache MariaDB/MySQL PHP/Python). 
 
 ## Instalación LAMP
@@ -151,7 +152,7 @@ Vemos que no hay conexión. Esto es porque el cortafuegos (firewall) está impid
 
 Hacemos
 
-> ssh 192.168.56.10
+> ssh quintinmr@192.168.56.10 -p 22022
 
 Una vez dentro, 
 
@@ -216,27 +217,38 @@ A partir de aquí, hacer:
 
 ### LAMP en Ubuntu
 
-1. Instalar tasksel
+1. Instalar apache2
 
-    > sudo apt install tasksel
+    > sudo apt install apache2
 
-2. Arrancar tasksel
+2. Arrancar apache2:
 
-    > tasksel
+    > sudo systemctl start apache2
 
-3. Dentro de tasksel seleccionamos **LAMP server**. Para seleccionar, cuando estemos sobre LAMP server, pulsamos **espacio** y enter. Esperamos a que instale la pila LAMP.
+3. Probamos a poner la url en un navegador y no nos saldrá nada. Tenemos que hacer:
 
-4. Una vez instalados todos los paquetes, comprobamos:
+    > sudo ufw allow 80
 
-    > systemctl status apache2
+4. Instalar mariadb-server y mariadb-client.
 
-    Levantamos apache 2:
+5. Arrancamos mariadb:
 
-    > sudo systemctl enable apache2
+    > sudo systemctl start maridb
 
-    > sudo systemctl restart apache2
+6. Probamos a entrar al intérprete de Mariadb:
 
-    Instalamos php:
+    > sudo mysql -u root -p
+
+7. Ejecutamos:
+
+    > sudo mysql_secure_installation
+
+8. Instalamos php:
+
+    > sudo apt install php
+
+
+5. Instalamos php:
 
     > sudo apt install php
 
@@ -244,14 +256,32 @@ A partir de aquí, hacer:
 
     > php -a
 
-    Finalmente comprobamos el estado de mysql:
+6. Nos conectamos remotamente desde el ordenadoor anfitrión (como tenemos que copiar y eso, es más facil desde nuestra terminal).
 
-    > systemctl status mysql
+7. Creamos el archivo index.php:
 
-    > sudo systemctl enable myqsl
+    > cd /var/www/html
 
-    > sudo systemctl restart mysql
+    > sudo vi index.php
 
+    > rellenamos el archivo.
 
+8. Nos vamos al intérprete de mariadb:
+
+    > sudo mysql -u root -p
+
+9. Creamos y rellenamos la base de datos (código de swad).
+
+10. Comprobamos lo que sale en el navegador al poner:
+
+    > 192.168.56.15/index.php
+
+11. Si sale mal, según el video habría que modificar el archivo /etc/apache2/conf/apache.conf, poniendo quee DirectoryIndex sea *.php. Per como a mi no me sale, no he tocado ese archivo y he puesto simplemente:
+
+> sudo dnf install php-mysqli
+
+12. Hacer:
+
+    > systemctl restart apache2
 
 

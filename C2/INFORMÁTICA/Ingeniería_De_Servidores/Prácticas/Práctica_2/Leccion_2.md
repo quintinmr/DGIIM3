@@ -8,6 +8,8 @@ Vamos a centrarnos en el control de versiones con **Git** en local.
 
     > git init repositorio
 
+    > cd repositorio
+
 2. Vamos a editar el fichero de configuración **~/.gitconfig** (es un archivo que está en el directorio home).
 
 ![](/home/quintin/Github/DGIIM_3/C2/INFORMÁTICA/Ingeniería_De_Servidores/Prácticas/Práctica_2/git.png)
