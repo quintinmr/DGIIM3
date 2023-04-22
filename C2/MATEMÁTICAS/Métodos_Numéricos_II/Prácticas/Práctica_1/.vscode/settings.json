@@ -1,0 +1,8 @@
+{
+    "jupyter.kernels.filter": [
+        {
+            "path": "/usr/share/jupyter/kernels/sagemath/kernel.json",
+            "type": "jupyterKernelspec"
+        }
+    ]
+}
