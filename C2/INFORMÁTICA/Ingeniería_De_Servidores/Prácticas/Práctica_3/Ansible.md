@@ -1,6 +1,6 @@
 # Ansible
 
-Permite ejecutar comandos sobre máquinas remotas. Dado un equipo A, instalamos Ansible. Luego tendremos varios equipos diferentes (distintas máquinas virtuales con sistemas operativos los que sean). Desde la máquina A, ejecutaremos órdenes a las VM (crea varias hebras; hay concurrenca real). Ansible trabaja con comandos **Ad-Hoc** (solo trabajaremos con estas) y **PlayBooks** (no lo veremos, pero interesa; juega el papel de un scrip). Ansible es un lenguaje declarativo; decimos el estado final que queremos que alcance la máquina.
+Permite ejecutar comandos sobre máquinas remotas. Dado un equipo A, instalamos Ansible. Luego tendremos varios equipos diferentes (distintas máquinas virtuales con sistemas operativos los que sean). Desde la máquina A, ejecutaremos órdenes a las VM (crea varias hebras; hay concurrenca real). Ansible trabaja con comandos **Ad-Hoc** (solo trabajaremos con estas) y **PlayBooks** (no lo veremos, pero interesa; juega el papel de un script). Ansible es un lenguaje declarativo; decimos el estado final que queremos que alcance la máquina.
 
 ## Instalación
 
